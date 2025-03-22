@@ -4,6 +4,7 @@
 import pygame
 from constants import *
 from circleshape import CircleShape
+from player import Player
 
 def main():
     pygame.init()
@@ -15,10 +16,10 @@ def main():
 
     game_clock = pygame.time.Clock()
     dt = 0
+    player01 = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     continue_game_loop = True
     while continue_game_loop:
-        #dt = 0
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
@@ -27,6 +28,8 @@ def main():
         pygame.display.flip()
         local_delta = game_clock.tick(60)
         dt = (local_delta / 1000)
+        player01.draw(screen)
+
 
 
 
